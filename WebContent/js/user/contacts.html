@@ -1,0 +1,123 @@
+
+<div id="con" class="partial-page">
+	
+	<div class="col-md-2"></div>
+
+	<div class="col-md-8 col-xs-12 contact">
+		<div class="contact-align">
+			<form role="form" name="contactForm">
+				<div class="table-responsive">
+					<table class="table1 table1-hover">
+						<thead>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr  ng-repeat="x in contactForm.contactList"
+								ng-click="setUrl(x.contactId)" style="cursor: pointer; " ng-init="randC=randomColor();">
+
+
+								<td><p ng-class="randC"><span 
+									style="font-size: 20px; color: #fff; padding-top: 8px; cursor: pointer;"
+									aria-hidden="true" >{{x.firstName[0]}}</span></p></td> <!--  {{x.lastName[0]}} -->
+								<td><br>{{x.firstName}}&nbsp{{x.lastName}}</td>
+								<td><br>+91-{{x.phoneNo}}</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+	<div class="col-md-2"></div>
+
+
+
+
+<div class="col-md-11 col-sm-11 col-xs-11 "></div>
+<div class="col-md-1 col-sm-1 col-xs-1 mydiv"><br><br><br>
+<div class="addLogo" onclick="document.getElementById('addContacts').style.display='block'" >
+<i class="fa fa-user-plus logo" aria-hidden="true"></i></div>
+</div>
+
+
+<!-- Modal begins here -->
+<div id="addContacts" class="w3-modal">
+
+<div class="col-md-2 col-xs-2 "></div>
+<div class="col-md-8 col-xs-12 "> 
+    <div class="w3-modal-content w3-card-8" style="height:100px; width:700px;  " >
+        <span onclick="document.getElementById('addContacts').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+       <div class="w3-container" style="background-color: #fff">           
+	<br><br>
+	<form role="form">
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-6">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									name="name1" ng-model="firstName" placeholder="Enter your First Name" required="required"/>
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									name="name2" ng-model="lastName"  placeholder="Enter your Last Name" required="required"/>
+							</div>
+						</div>
+					</div>
+				</div>
+		<br>
+						<div class="form-group">
+						<div class="col-md-12">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+									<input id="E" type="text" class="form-control" name="pNo" ng-model=" phoneNo" 
+									pattern="\d{10}" placeholder="How to contact you ?" required="required" oninvalid="setCustomValidity('Please enter a 10 digit Mobile number')" />
+								</div>	
+								</div>
+						</div>
+	<br><br>
+						
+						<div class="form-group">
+						<div class="col-md-12">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="location" ng-model="location" 
+									 placeholder="Where do you live ?" required="required" />
+								</div></div>
+						</div>
+					</div>	
+					
+					<br><br><br>
+			    <button  class="btn btn-primary btn-lg" type="submit" value="Submit" ng-click="AddContacts()">Add to Contacts</button>
+				<br> <br>
+				</form>
+				</div> 
+ </div>
+</div>
+<div class="col-md-2 col-xs-2 "></div> 
+</div>
+
+<div id="msg" class="w3-modal" >
+		<div class="w3-modal-content w3-card-8"
+			style="height: 100px; width: 700px;">
+			<span ng-click="refreshPage()" class="w3-button w3-display-topright">&times;</span>
+			<div class="w3-container" style="background-color: #fff">
+				<h3 class="success">{{msg}}</h3>
+			</div>
+		</div>
+	</div>
